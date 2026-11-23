@@ -2,9 +2,34 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Страница не найдена</title>
+    <title><?= htmlspecialchars($title) ?></title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h1>Статья не найдена (404)</h1>
+
+<table class="layout">
+    <tr>
+        <td colspan="2" class="header">
+            Мой блог
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1>Статья не найдена (404)</h1>
+        </td>
+
+        <td width="300px" class="sidebar">
+            <div class="sidebarHeader">Меню</div>
+            <ul>
+                <li><a href="../articles/1">Статья 1</a></li>
+                <li><a href="../articles/2">Статья 2</a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="footer" colspan="2">Все права защищены (c) Мой блог</td>
+    </tr>
+</table>
+
 </body>
 </html>

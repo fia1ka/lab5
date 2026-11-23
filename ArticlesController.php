@@ -19,18 +19,18 @@ class ArticlesController
         );
 
         if (empty($result)) {
-            $this->view->renderHtml('404.php', [], 404);
+            $this->view->renderHtml('404.php', ['title' => 'Страница не найдена'], 404);
             return;
         }
 
-        $article = $result;
+        $article = reset($result);
 
-        // Запрос на получение автора статьи из таблицы users
+        // Второй запрос на получение автора статьи из таблицы users
         $authorResult = $this->db->query(
             'SELECT * FROM users WHERE id = :id;',
             [':id' => $article['author_id']]
         );
-        $author = !empty($authorResult) ? $authorResult : null;
+        $author = !empty($authorResult) ? reset($authorResult) : null;
 
         $this->view->renderHtml('show.php', [
             'title'   => $article['name'],

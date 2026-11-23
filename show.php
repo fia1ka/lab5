@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title><?= htmlspecialchars($title ?? 'Мой блог') ?></title>
+    <title><?= htmlspecialchars($title) ?></title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -23,8 +23,8 @@
         <td width="300px" class="sidebar">
             <div class="sidebarHeader">Меню</div>
             <ul>
-                <li><a href="../">Главная страница</a></li>
                 <li><a href="../articles/1">Статья 1</a></li>
+                <li><a href="../articles/2">Статья 2</a></li>
             </ul>
         </td>
     </tr>

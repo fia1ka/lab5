@@ -14,6 +14,10 @@ class View
         http_response_code($code);
         extract($vars);
 
+        if (!isset($title)) {
+            $title = 'Мой блог';
+        }
+
         ob_start();
         include $this->templatesPath . '/' . $templateName;
         $buffer = ob_get_contents();

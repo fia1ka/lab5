@@ -4,7 +4,7 @@ require_once __DIR__ . '/Db.php';
 require_once __DIR__ . '/View.php';
 require_once __DIR__ . '/ArticlesController.php';
 
-$route = $_GET['route'] ?? '';
+$route = $_GET['route'] ?? 'articles/1';
 $routes = require __DIR__ . '/routes.php';
 
 $isRouteFound = false;
@@ -21,10 +21,9 @@ if (!$isRouteFound) {
     return;
 }
 
-unset($matches);
+array_shift($matches);
 
-$controllerName = $controllerAndAction;
-$actionName = $controllerAndAction;
+list($controllerName, $actionName) = $controllerAndAction;
 
 $controller = new $controllerName();
 $controller->$actionName(...$matches);
